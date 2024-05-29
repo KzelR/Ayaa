@@ -9,10 +9,10 @@ if (empty($_SESSION['user'])){
   header('location:login.php');                                                                                                                                                   
  }
 
-if(isset($_POST['home'])){
-    $user_id = $_POST['id'];
+if(isset($_POST['del'])){
+    $admin_id = $_POST['id'];
     if($con->delete($admin_id)){
-        header('location:home.php');
+        header('location:admin.php');
 } else {
     echo 'Something went wrong';
 }
@@ -36,7 +36,7 @@ if(isset($_POST['home'])){
 </head>
 <body>
 
-<?php include('navbar.php');?>
+<?php include('sidebar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">
 <h2 class="text-center mb-2">Admin Table</h2>

@@ -43,13 +43,23 @@ try{
 function viewdata($admin_id){
 try{
     $con = $this->opencon();
-        $query = $con->prepare("SELECT admin.admin_id,admin.firstname, admin.lastname, admin.user WHERE admin.admin_id = ?");
+        $query = $con->prepare("SELECT admin.admin_id,admin.firstname, admin.lastname, admin.user, admin.profile_picture WHERE admin.admin_id = ?");
         $query->execute([$admin_id]);
         return $query->fetch();
     }catch(PDOException $e){
     return [];
         }
     }
+    function viewprofile($id){
+        try{
+            $con = $this->opencon();
+                $query = $con->prepare("SELECT admin.admin_id, admin.profile_picture WHERE admin.admin_id = ?");
+                $query->execute([$id]);
+                return $query->fetch();
+            }catch(PDOException $e){
+            return [];
+                }
+            }
     function addCategory($type){
         $con = $this->opencon();
         //$query = $con->prepare("SELECT user FROM users WHERE user = ?");

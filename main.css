@@ -2143,6 +2143,7 @@ section,
   margin-top: 100px;
   height: auto;
   padding: 20px;
+  margin-bottom: 100px;
 }
 .divider:after,
 .divider:before {

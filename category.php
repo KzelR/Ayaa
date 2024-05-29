@@ -34,9 +34,24 @@ if(isset($_POST['category'])){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="main.css">
 </head>
+<style>
+    .container{
+        background-color: #37517E;
+        color:white;
+    }
+    .container h2{
+        color: white;
+    }
+    .container table{
+        color: white;
+    }
+
+
+
+</style>
 <body>
 
-<?php include('navbar.php');?>
+<?php include('sidebar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">
     <h2 class="text-center mb-2">Category Table</h2>
