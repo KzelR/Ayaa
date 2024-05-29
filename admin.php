@@ -36,6 +36,7 @@ if(isset($_POST['del'])){
 </head>
 <body>
 
+<?php include('user_navbar.php');?>
 <?php include('sidebar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">

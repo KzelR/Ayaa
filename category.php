@@ -50,7 +50,7 @@ if(isset($_POST['category'])){
 
 </style>
 <body>
-
+<?php include('user_navbar.php');?>
 <?php include('sidebar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">

@@ -4,9 +4,9 @@
     left: 0;
     bottom: 0;
     width: 10%; /* Adjust as needed */
+    margin-top: 110px;
     background-color: #343a40; /* Adjust background color */
-    padding: 20px; /* Adjust padding */
-    padding-top: 80px;
+    padding: 5px; /* Adjust padding */
   }
   
   
