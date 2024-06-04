@@ -13,6 +13,7 @@ if(isset($_POST['login'])){
   if($result){
     if($result['user'] == $_POST['user'] && $result['pass'] == $_POST['pass']){
       $_SESSION['user'] = $result['user'];
+      $_SESSION['admin_id'] = $result['admin_id'];
       header('location:product.php');
     } else {
       echo 'Incorrect username or password. Please try again.';
@@ -32,13 +33,14 @@ if(isset($_POST['login'])){
   <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
   <!-- Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" href="./css/login.css">
   <style>
   
   </style>
 </head>
 <body>
-
+<div class="container">
+        <h1>Aya Store Inventory System</h1>
 <div class="container-fluid login-container rounded shadow">
   <h2 class="text-center login-heading mb-2">Login</h2>
   
@@ -58,7 +60,7 @@ if(isset($_POST['login'])){
                             </div>
                         <?php endif; ?>
 
-                        <div class="container">
+                        <div class="container1">
                           <div class="row gx-1">
                             <div class="col">
                             <input type="submit" class="btn btn-primary btn-block" value="Log In" name="login">
@@ -68,6 +70,7 @@ if(isset($_POST['login'])){
                             </div>
                           </div>
                         </div>
+    </div>
    
    
   </form>

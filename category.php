@@ -2,16 +2,16 @@
 require_once('classes/database.php');
 $con = new database();
  
-session_start();
+// session_start();
 
 
-if (empty($_SESSION['user'])){
-  header('location:product.php');                                                                                                                                                 
- }
+// if (empty($_SESSION['admin_id'])){
+//   header('location:product.php');                                                                                                                                                 
+//  }
 
 if(isset($_POST['category'])){
     $category_id = $_POST['id'];
-    if($con->delete($category_id)){
+    if($con->deleteCat($category_id)){
         header('location:category.php');
 } else {
     echo 'Something went wrong';
@@ -32,27 +32,14 @@ if(isset($_POST['category'])){
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- For Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="./css/category.css">
 </head>
-<style>
-    .container{
-        background-color: #37517E;
-        color:white;
-    }
-    .container h2{
-        color: white;
-    }
-    .container table{
-        color: white;
-    }
 
-
-
-</style>
 <body>
 <?php include('user_navbar.php');?>
 <?php include('sidebar.php');?>
-
+<div class="container">
+        <h1>Inventory Management</h1>
 <div class="container user-info rounded shadow p-3 my-2">
     <h2 class="text-center mb-2">Category Table</h2>
     <div class="table-responsive text-center">
@@ -75,15 +62,11 @@ if(isset($_POST['category'])){
                     <td><?php echo $row['Type'];?></td>
                   </td>
                     <td>
-                        <!-- Edit button -->
-                        <form action="update.php" method="POST" style="display: inline;">
-                            <input type="hidden" name="id" value="<?php echo $row['category_id']; ?>">
-                            <button type="submit"  name="edit" class="btn btn-primary btn-sm">Edit</button>
-                        </form>
+                       
                         <!-- Delete button -->
                         <form method="POST" style="display: inline;">
                             <input type="hidden" name="id" value="<?php echo $row['category_id']; ?>">
-                            <input type="submit"  name="del" value="Delete" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?')">
+                            <input type="submit"  name="del" value="Delete" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">
                         </form>
                     </td>
                 </tr>
@@ -98,6 +81,7 @@ if(isset($_POST['category'])){
     <div class="text-center mt-3">
         <a href="addcategory.php" class="btn btn-primary">Add Category Product</a>
     </div>
+            </div>
 </div>
  
 <!-- Bootstrap JS and dependencies -->

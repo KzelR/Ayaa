@@ -2,4 +2,4 @@
     session_start();
     $_SESSION['username'] = '';
     session_unset();
-    header('location:index.php');
+    header('location:login.php');

@@ -2137,13 +2137,16 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+.container{
+  margin-top: 100px;
+}
 .login-container {
   max-width: 400px;
   margin: 0 auto;
   margin-top: 100px;
   height: auto;
   padding: 20px;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
 }
 .divider:after,
 .divider:before {

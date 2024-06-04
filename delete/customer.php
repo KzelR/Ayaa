@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 require_once('classes/database.php');
 $con = new database();
  
@@ -6,13 +6,13 @@ $con = new database();
 
 
 // if (empty($_SESSION['admin_id'])){
-//   header('location:login.php');                                                                                                                                                   
+//   header('location:addcustomer.php');                                                                                                                                                   
 //  }
 
-if(isset($_POST['del'])){
-    $admin_id = $_POST['id'];
-    if($con->delete($admin_id)){
-        header('location:admin.php');
+if(isset($_POST['customer'])){
+    $customer_id = $_POST['id'];
+    if($con->deleteCust($customer_id)){
+        header('location:home.php');
 } else {
     echo 'Something went wrong';
 }
@@ -40,7 +40,7 @@ if(isset($_POST['del'])){
 <?php include('sidebar.php');?>
 
 <div class="container user-info rounded shadow p-3 my-2">
-<h2 class="text-center mb-2">Admin Table</h2>
+<h2 class="text-center mb-2">Customer Table</h2>
   <div class="table-responsive text-center">
     <table class="table table-bordered">
       <thead>
@@ -49,7 +49,7 @@ if(isset($_POST['del'])){
           <th>Profile</th>
           <th>First Name</th>
           <th>Last Name</th>
-          <th>Username</th>
+          <th>Contact Number</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -57,31 +57,31 @@ if(isset($_POST['del'])){
       <?php
       $counter = 1;
       // $id = $_SESSION['id'];
-      $data = $con->view();
+      $data = $con->customer();
       foreach($data as $row) {
         ?>
          <tr>
           <td><?php echo $counter++;?></td>
           <td>
-          <?php if (!empty($row['profile_picture'])): ?>
-          <img src="<?php echo htmlspecialchars($row['profile_picture']); ?>" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
+          <?php if (!empty($row['profile_pic'])): ?>
+          <img src="<?php echo htmlspecialchars($row['profile_pic']); ?>" alt="Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
         <?php else: ?>
           <img src="path/to/default/profile/pic.jpg" alt="Default Profile Picture" style="width: 50px; height: 50px; border-radius: 50%;">
         <?php endif; ?>
       </td>
           <td><?php echo $row['firstname'];?></td>
           <td><?php echo $row['lastname'];?></td>
-          <td><?php echo $row['user'];?></td>
+          <td><?php echo $row['contact_number'];?></td>
           <td>
  
         <!-- Edit button -->
           <form action="update.php" method="POST" style="display: inline;">
-            <input type="hidden" name="id" value="<?php echo $row['admin_id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $row['customer_id']; ?>">
             <button type="submit"  name="edit" class="btn btn-primary btn-sm">Edit</button>
           </form>
         <!-- Delete button -->
         <form method="POST" style="display: inline;">
-            <input type="hidden" name="id" value="<?php echo $row['admin_id']; ?>">
+            <input type="hidden" name="id" value="<?php echo $row['customer_id']; ?>">
             <input type="submit"  name="del" value="Delete" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this user?')">
         </form>
           </td>
@@ -93,6 +93,9 @@ if(isset($_POST['del'])){
       </tbody>
     </table>
   </div>
+  <div class="text-center mt-3">
+        <a href="addcustomer.php" class="btn btn-primary"name="customer">Add Customer</a>
+    </div>
 </div>
 </div>
  
@@ -101,8 +104,8 @@ if(isset($_POST['del'])){
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="./bootstrap-5.3.3-dist/js/bootstrap.js"></script>
-<!-- Bootsrap JS na nagpapagana ng danger alert natin -->
+<!-- Bootsrap JS na nagpapagana ng danger alert natin 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
  
 </body>
-</html>
+</html> -->

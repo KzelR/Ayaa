@@ -86,7 +86,7 @@ if(isset($_POST['signup'])){
     <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.css">
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./css/main.css">
 </head>
 <body>
 
