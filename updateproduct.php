@@ -15,7 +15,6 @@ if (empty($product_id = $_POST['id'])) {
 
     if(isset($_POST['update'])) {
         //user information 
-        $name = $_POST['name'];
         $stock = $_POST['stock'];
         $price = $_POST['price'];
         $expiration = $_POST['expiration'];
@@ -59,32 +58,7 @@ if (empty($product_id = $_POST['id'])) {
     <div class="container">
         <h2 class="text-center mb-4">Update Product</h2>
        
-        <form method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="productName" class="form-label">Product Name</label>
-                <input type="text" class="form-control" id="productName" name="name" value="<?php echo $data['name']?>" >
-                
-            </div>
-
-
-            <div class="mb-3">
-    <label for="categoryName" class="form-label">Category</label>
-    <select class="form-control" id="categoryName" name="type" value="<?php echo $data['type']?>" >
-        <?php
-        // Fetch categories from the database
-        $categories = $con->getCategoryData();
-        // Check if categories are fetched
-        if ($categories) {
-            // Loop through each category and populate the dropdown
-            foreach ($categories as $category) {
-                echo "<option value='" . $category['Type'] . "'>" . $category['Type'] . "</option>";
-            }
-        } else {
-            echo "<option value=''>No categories available</option>";
-        }
-        ?>
-    </select>
-</div>
+       
 
             <div class="mb-3">
                 <label for="stock" class="form-label">Stock</label>
@@ -98,11 +72,8 @@ if (empty($product_id = $_POST['id'])) {
                 <label for="expiration" class="form-label">Expiration Date</label>
                 <input type="date" class="form-control" id="expiration" name="expiration" value="<?php echo $data['expiration']?>" >
             </div>
-            <div class="mb-3">
-                <label for="productPicture" class="form-label">Product Picture</label>
-                <input type="file" class="form-control" id="productPicture" name="productPicture" value="<?php echo $data['picture']?>" accept="image/*">
-            </div>
-            <button type="submit" class="btn btn-primary" name="product">Update Product</button>
+            
+            <button type="submit" class="btn btn-primary" name="update">Update Product</button>
         </form>
     </div>
 
